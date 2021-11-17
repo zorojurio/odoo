@@ -5,21 +5,19 @@
         <field name="name">hospital.patient.form</field>
         <field name="model">hospital.patient</field>
         <field name="arch" type="xml">
-            <form>
+            <form string="Create Patient">
                 <sheet>
                     <group>
-                        <field name="name"/>
+                        <group>
+                            <field name="name"/>
+                            <field name="age"/>
+                        </group>
+                        <group>
+                            <field name="gender"/>
+                            <field name="note"/>
+                        </group>
                     </group>
                 </sheet>
-
-                <!--                <group>-->
-                <!--                    <group>-->
-
-                <!--                    </group>-->
-                <!--                    <group>-->
-
-                <!--                    </group>-->
-                <!--                </group>-->
             </form>
         </field>
     </record>
