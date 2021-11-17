@@ -1,5 +1,6 @@
 .vscode/
 venv/
+odoo/
 _# sphinx build directories
 _build/
 conf/myconfig.cfg
