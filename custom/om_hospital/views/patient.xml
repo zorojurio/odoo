@@ -7,8 +7,9 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
-                    <field name="name"/>
-                    <field name="age"/>
+                    <group>
+                        <field name="name"/>
+                    </group>
                 </sheet>
 
                 <!--                <group>-->
