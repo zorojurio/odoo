@@ -27,6 +27,7 @@
         'security/ir.model.access.csv',
         'views/patient.xml',
         'views/sale.xml',
+        'views/website_form.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
