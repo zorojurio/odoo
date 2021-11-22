@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
-# from odoo import http
+from odoo import http
 
+
+class Hospital(http.Controller):
+    @http.route('/patient_webform', type="http", auth='public', website=True)
+    def patient_webform(self, **kw):
+        return http.request.render('om_hospital.create_patient', {})
 
 # class Custom/omHospital(http.Controller):
 #     @http.route('/custom/om_hospital/custom/om_hospital/', auth='public')

@@ -2,8 +2,35 @@
 <odoo>
     <record id="menu_patient_form" model="website.menu">
         <field name="name">Create Patient</field>
-        <field name="url">/create_patient</field>
+        <field name="url">/patient_webform</field>
         <field name="parent_id" ref="website.main_menu"/>
         <field name="sequence" type="int">55</field>
     </record>
+
+    <template id="create_patient" name="Create Patient">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure">
+                    <div class="container">
+                        <form role="form" action="/create/webpatient" method="POST">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            <div class="form-group">
+                                <label for="patient_name" class="control-label">Name</label>
+                                <input type="text" name="patient_name" t-att-value="patient_name" id="patient_name"
+                                class="form-control" placeholder="e.g John Doe" required="required"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="patient_age" class="control-label">Age</label>
+                                <input type="text" name="patient_age" t-att-value="patient_age" id="patient_age"
+                                class="form-control" placeholder="20" required="required"/>
+                            </div>
+                            <div class="clearfix oe_login_buttons">
+                                <button type="submit" class="btn btn-primary pull-right">New Patient</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
 </odoo>
