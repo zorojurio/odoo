@@ -20,14 +20,15 @@
     'version': '0.1',
     'license': 'LGPL-3',
     # any module necessary for this one to work correctly
-    'depends': ['sale'],
+    'depends': ['base', 'sale'],
 
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'views/website_form.xml',
         'views/patient.xml',
         'views/sale.xml',
-        'views/website_form.xml'
+
     ],
     # only loaded in demonstration mode
     'demo': [

@@ -1,11 +1,16 @@
 # -*- coding: utf-8 -*-
 from odoo import http
+from odoo.http import request
 
 
-class Hospital(http.Controller):
-    @http.route('/patient_webform', type="http", auth='public', website=True)
-    def patient_webform(self, **kw):
-        return http.request.render('om_hospital.create_patient', {})
+# class Hospital(http.Controller):
+#     @http.route('/patient/webform/',  website=True, auth='public')
+#     def patient_webform(self, **kw):
+#         patients = request.env['hosptial.patient'].sudo().search([])
+#         print('patients----------', patients)
+#         return request.render('om_hospital.patients_page', {
+#             'patients': patients
+#         })
 
 # class Custom/omHospital(http.Controller):
 #     @http.route('/custom/om_hospital/custom/om_hospital/', auth='public')

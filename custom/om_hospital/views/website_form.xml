@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="menu_patient_form" model="website.menu">
+    <template id="patients_page" name="Create Hospital Patiets">
+        <t t-call="website.layout">
+            <div class="container">
+                <h2>This is the heading </h2>
+                Hey chathuranga
+                <t t-foreach="patients" t-as="pat">
+                    <t t-esc="pat-patient-name" />
+                </t>
+            </div>
+        </t>
+    </template>    
+    <!-- <record id="menu_patient_form" model="website.menu">
         <field name="name">Create Patient</field>
         <field name="url">/patient_webform</field>
         <field name="parent_id" ref="website.main_menu"/>
@@ -32,5 +43,5 @@
                 </div>
             </div>
         </t>
-    </template>
+    </template> -->
 </odoo>

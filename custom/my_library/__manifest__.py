@@ -10,7 +10,7 @@
     'description': """
         Long description of module's purpose
     """,
-
+    'sequence': -100,
     'author': "My Company",
     'website': "http://www.yourcompany.com",
 
@@ -25,8 +25,9 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         'views/views.xml',
+        'views/book.xml',
         'views/templates.xml',
     ],
     # only loaded in demonstration mode
