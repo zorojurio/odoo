@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="books_page" name="Booking List">
+        <t t-call="website.layout">
+            <div class="container">
+                <h2>Books List </h2>
+
+                <ol>
+                    <t t-foreach="books" t-as="book">
+                        <li>
+                            <t t-esc="book.name" />
+                            <t t-esc="book.age" />
+                        </li>
+                    </t>
+                </ol>
+            </div>
+        </t>
+    </template>   
+</odoo>

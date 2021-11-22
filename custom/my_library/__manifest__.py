@@ -28,6 +28,7 @@
         'security/ir.model.access.csv',
         'views/views.xml',
         'views/book.xml',
+        'views/web_book.xml',
         'views/templates.xml',
     ],
     # only loaded in demonstration mode
