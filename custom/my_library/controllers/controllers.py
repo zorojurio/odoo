@@ -22,12 +22,12 @@ class Book(http.Controller):
     def library_book_create(self, **kw):
         print('------------print POST data', kw)
         request.env['library.book'].sudo().create(kw)
-        books = request.env['library.book'].sudo().search([])
-        print('printing books----------------------------', books)
-        return request.render('my_library.books_list_page', {
-            'books': books
-        })
-        # return request.render('my_library.book_creation_redirect', {})
+        # books = request.env['library.book'].sudo().search([])
+        # print('printing books----------------------------', books)
+        # return request.render('my_library.books_list_page', {
+        #     'books': books
+        # })
+        return request.render('my_library.book_creation_redirect', {})
 
 # class CreateBook(http.Controller):
 #     @http.route('/book/webform/',  website=True, auth='public')
