@@ -10,7 +10,7 @@ class Book(http.Controller):
         print('printing books----------------------------', books)
         for book in books:
             print('-----------printing books -----------------', book.name)
-        return request.render('my_library.books_page', {
+        return request.render('my_library.books_list_page', {
             'books': books
         })
 

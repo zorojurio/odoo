@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="books_page" name="Booking List">
+    <template id="books_list_page" name="Booking List">
         <t t-call="website.layout">
             <div class="container">
                 <h2>Books List </h2>
