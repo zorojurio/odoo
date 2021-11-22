@@ -1,11 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- creating the menu in the website -->
-    <record id="web_menu_new_book" model="website.menu">
-        <field name="name">New Book</field>
-        <field name="url">/books/create</field>
-        <field name="parent_id" ref="website.main_menu" />
-        <field name="sequence" type="int">55</field>
-    </record>
+   <!-- creating the menu in the website -->
+   <record id="web_menu_new_book" model="website.menu">
+      <field name="name">New Book</field>
+      <field name="url">/books/create/</field>
+      <field name="parent_id" ref="website.main_menu" />
+      <field name="sequence" type="int">55</field>
+   </record>
 
+   <template id="create_book" name="New Book">
+      <t t-call="website.layout">
+         <div id="wrap">
+            <div class="oe_structure">
+               <div class="container">
+                  <div class="row my-5">
+                     <div class="col-8 mx-auto">
+                        <form role="form" action="/books/create/action" method="POST">
+                           <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                           <div class="form-group">
+                              <label for="name" class="control-label">Name</label>
+                              <input type="text" name="name" t-att-value="name" id="name" class="form-control" placeholder="e.g John Doe" required="required" />
+                           </div>
+                           <div class="form-group">
+                              <label for="age" class="control-label">Age</label>
+                              <input type="text" name="age" t-att-value="age" id="age" class="form-control" placeholder="20" required="required" />
+                           </div>
+                           <div class="clearfix oe_login_buttons">
+                              <button type="submit" class="btn btn-primary pull-right">New Book</button>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </t>
+   </template>
+
+   <record id="book_creation_redirect" model="website.page">
+      <field name="name">Thanks</field>
+      <field name="type" >qweb</field>
+      <field name="url">/books/thankyou</field>
+      <field name="key">my_library.book_creation_redirect</field>
+      <field name="arch" type="xml">
+         <t name="Thanks" t-name="my_library.book_creation_redirect">
+            <t t-call="website.layout">
+               <div id="wrap">
+                  <div class="container">
+                     <h2 class="text-center text-success">Thanks</h2>
+                     <div class="row">
+                        <div class="col-8 mx-auto">
+                           <div class="alert alert-success">
+                              You have successfully created a book.
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </t>
+         </t>
+      </field>
+   </record>
 </odoo>

@@ -5,7 +5,7 @@ from odoo.http import request
 
 class Book(http.Controller):
     @http.route('/library/books/', auth='public', website=True)
-    def patient_webform(self, **kw):
+    def book_list(self, **kw):
         books = request.env['library.book'].sudo().search([])
         print('printing books----------------------------', books)
         for book in books:
@@ -13,10 +13,19 @@ class Book(http.Controller):
         return request.render('my_library.books_list_page', {
             'books': books
         })
+        
+    @http.route('/books/create/', type="http" ,website=True, auth='public')
+    def book_webform(self, **kw):
+        return request.render('my_library.create_book', {})
 
+    @http.route('/books/create/action', type="http" ,website=True, auth='public')
+    def library_book_create(self, **kw):
+        print('------------print POST data', kw)
+        request.env['library.book'].sudo().create(kw)
+        return request.render('my_library.book_creation_redirect', {})
 
-# class Hospital(http.Controller):
-#     @http.route('/patient/webform/',  website=True, auth='public')
+# class CreateBook(http.Controller):
+#     @http.route('/book/webform/',  website=True, auth='public')
 #     def patient_webform(self, **kw):
 #         patients = request.env['hosptial.patient'].sudo().search([])
 #         print('patients----------', patients)
