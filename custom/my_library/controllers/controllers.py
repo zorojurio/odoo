@@ -13,16 +13,21 @@ class Book(http.Controller):
         return request.render('my_library.books_list_page', {
             'books': books
         })
-        
-    @http.route('/books/create/', type="http" ,website=True, auth='public')
+
+    @http.route('/books/create/', type="http", website=True, auth='public')
     def book_webform(self, **kw):
         return request.render('my_library.create_book', {})
 
-    @http.route('/books/create/action', type="http" ,website=True, auth='public')
+    @http.route('/books/create/action', type="http", website=True, auth='public')
     def library_book_create(self, **kw):
         print('------------print POST data', kw)
         request.env['library.book'].sudo().create(kw)
-        return request.render('my_library.book_creation_redirect', {})
+        books = request.env['library.book'].sudo().search([])
+        print('printing books----------------------------', books)
+        return request.render('my_library.books_list_page', {
+            'books': books
+        })
+        # return request.render('my_library.book_creation_redirect', {})
 
 # class CreateBook(http.Controller):
 #     @http.route('/book/webform/',  website=True, auth='public')
