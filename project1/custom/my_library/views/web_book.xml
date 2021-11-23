@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <!-- detail view -->
     <template id="book_detail">
         <t t-call="website.layout">
-            <t t-set="title">Academy</t>
+            <t t-set="title">Book</t>
             <div class="oe_structure" />
             <div class="oe_structure">
                 <div class="container">
@@ -14,7 +15,8 @@
             <div class="oe_structure" />
         </t>
     </template>
-
+    
+    <!-- list view -->
     <template id="books_list_page" name="Booking List">
         <t t-call="website.layout">
             <div class="container">
