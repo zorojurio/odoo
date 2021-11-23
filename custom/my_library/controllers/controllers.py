@@ -4,6 +4,12 @@ from odoo.http import request
 
 
 class Book(http.Controller):
+    @http.route('/books/<model("library.book"):book>/', auth='public', website=True)
+    def book_detail(self, book):
+        return http.request.render('my_library.book_detail', {
+            'book': book
+        })
+
     @http.route('/library/books/', auth='public', website=True)
     def book_list(self, **kw):
         books = request.env['library.book'].sudo().search([])

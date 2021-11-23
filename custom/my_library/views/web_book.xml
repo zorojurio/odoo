@@ -1,19 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <template id="book_detail">
+        <t t-call="website.layout">
+            <t t-set="title">Academy</t>
+            <div class="oe_structure" />
+            <div class="oe_structure">
+                <div class="container">
+                    <h3>
+                        <t t-esc="book.name" />
+                    </h3>
+                </div>
+            </div>
+            <div class="oe_structure" />
+        </t>
+    </template>
+
     <template id="books_list_page" name="Booking List">
         <t t-call="website.layout">
             <div class="container">
-                <h2>Books List </h2>
-
+                <h2>Books List</h2>
                 <ol>
                     <t t-foreach="books" t-as="book">
                         <li>
-                            <t t-esc="book.name" />
-                            <t t-esc="book.age" />
+                            <a t-attf-href="/books/{{ slug(book) }}">
+                                <t t-esc="book.name" />
+                                <t t-esc="book.age" />
+                            </a>
                         </li>
                     </t>
+
                 </ol>
             </div>
         </t>
-    </template>   
+    </template>
 </odoo>
