@@ -7,9 +7,13 @@
             <div class="oe_structure" />
             <div class="oe_structure">
                 <div class="container">
-                    <h3>
+                    <h3 class="text-center">
                         <t t-esc="book.name" />
                     </h3>
+                    <p t-field="book.age"></p>
+                    <div class="text-right">
+                        <a class="btn btn-warning"  t-attf-href="/books/edit/{{ slug(book) }}/">Edit</a>
+                    </div>
                 </div>
             </div>
             <div class="oe_structure" />
@@ -20,7 +24,7 @@
     <template id="books_list_page" name="Booking List">
         <t t-call="website.layout">
             <div class="container">
-                <h2>Books List</h2>
+                <h2 class="text-center">Books List</h2>
                 <ol>
                     <t t-foreach="books" t-as="book">
                         <li>
